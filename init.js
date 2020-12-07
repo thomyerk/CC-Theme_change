@@ -6,7 +6,7 @@ window.onload = () => {
       movieCard.classList.add("movie-card","light")
       let title = cardConstructor("title",item.title,movieCard)
       let year = cardConstructor("year",item.year,movieCard)
-      let rate = cardConstructor("rate",'&#11088;' + item.rate,movieCard)
+      let rate = cardConstructor("rate",'&#9734;' + item.rate,movieCard)
       let genres = cardConstructor("genres",item.genre,movieCard)
       document.body.appendChild(movieCard)
     }
@@ -28,19 +28,25 @@ function cardConstructor(cardElement,elemContent,parent){
   return div
 }
 
-// async function getGoogleImage(url = '', data = {}, title){
-//   url = "https://www.google.com/search?q=" + title.replace(" ","+") + "&source=lnms&tbm=isch"
-//   let response = await fetch(url,{
-//     method: 'GET'
-//     mode: 'cors'
+let dark = false;
 
-//   }).then(res => response.json())
-
-
-// }
-
-//https://www.google.com/search?q=The+Shawshank+Redemption&source=lnms&tbm=isch google link for images
-//document.querySelector('#islmp img') - google image search first img
+function darkmode(){
+  let elements = (dark)?document.querySelectorAll(".dark"):document.querySelectorAll(".light")
+  console.log(dark);
+  if(dark == false){
+    elements.forEach(cards => {
+      cards.classList.remove("light")
+      cards.classList.add("dark")
+    });
+    dark = true
+  }else{
+    elements.forEach(cards => {
+      cards.classList.remove("dark")
+      cards.classList.add("light")
+    });
+    dark = false
+  }
+}
 
 const movies = [
     {

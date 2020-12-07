@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+  display: flex;
+  flex-wrap: wrap;
+  gap:30px;
+  margin: 0 10%;
+}
+#circle{
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 55px;
+  position: absolute;
+  left: 50px;
+  top: 10px;
+  border: 3px solid rgba(0, 0, 0, 1);
+}
+
+#circle:hover{
+  background-color:  rgb(53, 181, 240);
+  filter: sepia(10%) saturate(10%) hue-rotate(528) ;
+}
+
 .movie-card {
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   width: 300px;
   height: 200px;
   display: grid;
@@ -9,26 +32,44 @@
 }
 
 .movie-card > .title {
+
   grid-row: 1;
   grid-column: span 2;
   font-size: x-large;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  margin-top: auto;
-  padding-bottom: 1rem;
+  padding: 10px 0 ;
+  font-family: Arvo,serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: x-large;
+  max-width: 100%;
 }
 
-.movie-card > .rate,
-.year {
+.movie-card > .rate, .light .year {
   text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dashed  rgba(0, 0, 0, 0.3);
+  border-right: 1px dashed  rgba(0, 0, 0, 0.3);
   padding-top: 1rem;
+  font-family: Arvo,serif;
+  font-size: larger;
+  background-color: white;
+  color: black;
 }
 
 .genres > ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  grid-column: span 2;
+  font-size: smaller;
+}
+
+div.genres{
+  padding: 15px;
+  font-family: 'Open-sans',sans-serif;
+  font-size: x-small;
 }
 
 .li::before {
@@ -38,7 +79,52 @@
 .light {
   /* Create a light theme */
 }
+.light .title{
+  background-color: rgb(53, 181, 240);
+  border-bottom: 5px solid rgba(0, 0, 0, 1);
+}
+.light .movie-card{
+  border: 5px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+}
 
-.dark {
+body.dark{
+  background-color: rgb(48, 48, 65);
+}
+
+.dark:not(body) {
+  color: white;
+  border: 5px solid #38486f; 
+  box-shadow: 10px 10px 0px 0px #d7c1e0;
   /* Create a dark theme */
+}
+.dark .title{
+  color: #d7c1e0;
+  background-color:#715081;
+  border-bottom: 5px solid rgba(0, 0, 0, 1);
+  border-right: 5px solid rgba(0, 0, 0, 1);
+}
+
+.dark .movie-card > .rate,
+.year {
+  padding-top: 1rem;
+  color: #d7c1e0;
+  background-color: #38486f;
+  border-bottom: 1px dashed  rgba(255, 255, 255, 0.3);
+  border-right: 1px dashed  rgba(255, 255, 255, 0.3);
+  font-family: Arvo,serif;
+  text-align: center;
+}
+
+.dark .movie-card{
+  background-color:#38486f;
+  color:black;
+}
+.dark .genres{
+  color: #d7c1e0;
+}
+
+.dark #circle:hover{
+  background-color:  #d7c1e0;);
+  filter: sepia(10%) saturate(10%) hue-rotate(528) ;
 }
