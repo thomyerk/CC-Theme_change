@@ -1,7 +1,46 @@
 window.onload = () => {
     // Create cards for each movies, than display it to the index.
     // You can find a basic sample structure for a card in the index.html
+    for(let item of movies){
+      let movieCard = document.createElement("div")
+      movieCard.classList.add("movie-card","light")
+      let title = cardConstructor("title",item.title,movieCard)
+      let year = cardConstructor("year",item.year,movieCard)
+      let rate = cardConstructor("rate",'&#11088;' + item.rate,movieCard)
+      let genres = cardConstructor("genres",item.genre,movieCard)
+      document.body.appendChild(movieCard)
+    }
 }
+
+function cardConstructor(cardElement,elemContent,parent){
+  let div = document.createElement("div")
+  div.classList.add(cardElement)
+  if(typeof(elemContent)==="array"){
+    var genres = elemContent
+    var listElement = '<ul>'
+    genres.forEach(function(genre) {
+      listElement += '<li>'+ genre + '</li>';
+    });
+  }else{
+    div.innerHTML = elemContent
+  }
+  parent.appendChild(div)
+  return div
+}
+
+// async function getGoogleImage(url = '', data = {}, title){
+//   url = "https://www.google.com/search?q=" + title.replace(" ","+") + "&source=lnms&tbm=isch"
+//   let response = await fetch(url,{
+//     method: 'GET'
+//     mode: 'cors'
+
+//   }).then(res => response.json())
+
+
+// }
+
+//https://www.google.com/search?q=The+Shawshank+Redemption&source=lnms&tbm=isch google link for images
+//document.querySelector('#islmp img') - google image search first img
 
 const movies = [
     {
